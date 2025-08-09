@@ -1,0 +1,4 @@
+data/menu.json
+[
+  { "name": "Shukto", "price": 150 }
+]
