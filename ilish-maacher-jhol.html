@@ -88,15 +88,15 @@ fetch('data/menu.json')
   })
   .then(data => {
     const menuContainer = document.getElementById('menu');
-    data.forEach(item => {
+    const ilish = data.find(item => item.name.toLowerCase() === 'ilish maacher jhol');
+    if (ilish) {
       const dish = document.createElement('p');
-      dish.textContent = `${item.name} - ₹${item.price}`;
+      dish.textContent = `${ilish.name} - ₹${ilish.price}`;
       menuContainer.appendChild(dish);
-    });
+    }
   })
   .catch(error => {
     console.error('Error loading menu:', error);
   });
 </script>
-</body>
-</html>
+
