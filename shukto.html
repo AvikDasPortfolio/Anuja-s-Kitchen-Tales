@@ -49,10 +49,6 @@
     }
   </style>
 </head>
-  <body>
-  <h1>Shukto</h1>
-  <div id="menu"></div>
-</body>
 <body>
 
   <header>
@@ -71,14 +67,16 @@
       usually made with bitter gourd, raw banana, drumsticks, and a mustard-poppy seed paste.
       Traditionally served at the beginning of a Bengali meal, Shukto is more than just a dish –
       it’s a cultural prelude to comfort and nostalgia. Try it with steamed rice for the most authentic experience!
-
-      Price: 150/-
     </p>
+
+    <!-- Price will be inserted here -->
+    <div id="menu"></div>
   </div>
-  <body>
+
   <footer>
     &copy; 2025 Anuja’s Kitchen Tales. All rights reserved.
   </footer>
+
 <script>
 fetch('data/menu.json')
   .then(response => {
@@ -89,15 +87,17 @@ fetch('data/menu.json')
   })
   .then(data => {
     const menuContainer = document.getElementById('menu');
-    data.forEach(item => {
+    const shukto = data.find(item => item.name.toLowerCase() === 'shukto');
+    if (shukto) {
       const dish = document.createElement('p');
-      dish.textContent = `${item.name} - ₹${item.price}`;
+      dish.textContent = `Price: ₹${shukto.price}`;
       menuContainer.appendChild(dish);
-    });
+    }
   })
   .catch(error => {
     console.error('Error loading menu:', error);
   });
 </script>
+
 </body>
 </html>
