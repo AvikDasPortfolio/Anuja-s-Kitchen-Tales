@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ilish Maacher Jhol Recipe - Anuja's Kitchen Tales</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #ff7043;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    nav {
+      background-color: #ffe0b2;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .content {
+      padding: 30px;
+      text-align: center;
+    }
+    .content h2 {
+      color: #ff7043;
+    }
+    .content p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    footer {
+      background-color: #ffe0b2;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+  <body>
+  <h1>Ilish Maacher Jhol</h1>
+  <div id="menu"></div>
+</body>
+<body>
+
+  <header>
+    <h1>Anuja's Kitchen Tales</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="ilish-maacher-jhol.html">Ilish Maacher Jhol</a>
+  </nav>
+
+  <div class="content">
+    <h2>Ilish Maacher Jhol - Bengali Hilsa Curry</h2>
+    <p>
+      The legendary Hilsa fish curry, slow-cooked with mustard paste, green chilies, turmeric, and potatoes. 
+    This dish holds a special place in Bengali hearts, bringing together the rich aroma of fresh Hilsa and 
+    the earthy punch of mustard, served best with steamed rice.
+
+      Price: 150/-
+    </p>
+  </div>
+  <body>
+  <footer>
+    &copy; 2025 Anuja’s Kitchen Tales. All rights reserved.
+  </footer>
+<script>
+fetch('data/menu.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    const menuContainer = document.getElementById('menu');
+    data.forEach(item => {
+      const dish = document.createElement('p');
+      dish.textContent = `${item.name} - ₹${item.price}`;
+      menuContainer.appendChild(dish);
+    });
+  })
+  .catch(error => {
+    console.error('Error loading menu:', error);
+  });
+</script>
+</body>
+</html>
