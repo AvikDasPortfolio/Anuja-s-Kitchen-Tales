@@ -60,13 +60,27 @@
     <a href="Shukto.html">Shukto</a>
   </nav>
   
-  <div class="video-container">
-      <video controls>
-        <source src="shukto.mov" type="video/quicktime">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
+  <style>
+  .video-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically if needed */
+    margin: 20px auto;
+  }
+  .video-container video {
+    max-width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+</style>
+
+<div class="video-container">
+  <video controls>
+    <source src="shukto.mov" type="video/quicktime">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
 
   <div class="content">
     <h2>Shukto – A Bengali Bitter-Sweet Classic</h2>
